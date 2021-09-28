@@ -207,11 +207,12 @@ export default {
     list-style: none;
   }
   .btn{
-    margin: -10px 50px;     
+    margin: -10px 70px;     
   }
    @media only screen and (max-width: 1024px) {
-     img{
+     .centrar1{
        width: 100%;
+       margin-right: 1000px;
      }
    }
 </style>
