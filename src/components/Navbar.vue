@@ -4,14 +4,15 @@
       <router-link to="/" class="navbar-brand">
         <img v-bind:src="require('../assets/logo_abajo.png')" alt="logo" >
       </router-link>
-      <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
-      <b-collapse id="nav-collapse" is-nav>    
-        <b-navbar-nav  class="navbar-nav ">
+      <b-navbar-toggle target="nav-collapse" ></b-navbar-toggle>
+      
+      <b-collapse id="nav-collapse" is-nav class=" justify-content-end ">   
+        <b-navbar-nav  class="navbar-nav " >
           <b-nav-item  >
-          <router-link to="/" class="nav-link"  >INICIO</router-link>  
+          <router-link to="/" class="nav-link " >INICIO</router-link>  
           </b-nav-item>
           <b-nav-item >
-            <router-link to="/Productos" class="nav-link" >PRODUCTOS</router-link>  
+            <router-link to="/Productos" class="nav-link">PRODUCTOS</router-link>  
           </b-nav-item>
           <b-nav-item >
             <router-link to="/Contactenos" class="nav-link" >CONTACTENOS</router-link>  
@@ -80,13 +81,19 @@ export default {
     font-weight:lighter;
     
   }
-  
+  .navbar  a.nav-link:hover{
+    color: #000000;
+  }
+  .navbar  a.nav-link::after{
+    color: chartreuse;
+  }
   /*lo que voy a utilizar*/
   .navbar .nav-link:hover {
     
     padding-bottom: 0px ;
     border-bottom: 2px solid #6ab23c;
   }
+
   .boton3 {
   color: #000000 !important;
   font-size: 20px;

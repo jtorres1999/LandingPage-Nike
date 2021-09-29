@@ -3,12 +3,12 @@
     <br><br><br><br>
     <b-container class="bv-example-row">
       <b-row>
-        <b-col cols="12" md="9" lg="9">
+        <b-col cols="12" md="8" >
           <iframe 
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3924.1523107611906!2d-75.51752258571537!3d10.409475268707075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8ef625901e085323%3A0x39fdd17ca4c870d!2sHELPMEDICA%20SAS!5e0!3m2!1ses-419!2sco!4v1632582680946!5m2!1ses-419!2sco" 
           width="600px" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </b-col>
-        <b-col cols="12" md="3" lg="3" >
+        <b-col cols="12" md="4" >
           <h2>Contactenos</h2>
           <b-form @submit="onSubmit" @reset="onReset" v-if="show">
             <br>
@@ -50,10 +50,10 @@
                 rows="3"
               ></b-form-textarea>
             </b-form-group>
-            <br>
-            <b-button type="submit" variant="success">Enviar</b-button>
-            <b-button type="reset" variant="info">Reset</b-button>
-            <br><br>
+            <br><center>
+            <b-button type="submit" class="btn ">Enviar</b-button>
+            
+            <br><br></center>
           </b-form>
         </b-col>
       </b-row>   
@@ -105,12 +105,21 @@ export default {
 }
 iframe{
   width: 100%;
-  margin: 10px -250px;
+  margin: 10px 0px;
   height: 90%;
 }
 h2{
   margin-top: 20px;
   font-family: "Montserrat", sans-serif;
   font-weight: bolder;
+}
+button{
+  margin-left: 30px;
+}
+.btn2{
+  background-color: rgb(118, 118, 119);
+}
+.btn{
+  background-color: #6ab23c;
 }
 </style>

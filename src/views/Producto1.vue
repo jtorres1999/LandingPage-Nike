@@ -4,10 +4,27 @@
     <b-container class="bv-example-row">
       <b-row class="rowproducto">
         <b-col cols="12" md="4" >
-          <img :src="require('@/assets/card1.png')" alt="diseño" class="cent">
+          <!-- <b-carousel
+          id="carousel-1"
+          v-model="slide"
+          :interval="4000"
+          controls
+          indicators
+          background="#ababab"
+          img-width="924"
+          img-height="680"
+          style="text-shadow: 1px 1px 2px #333;"
+          @sliding-start="onSlideStart"
+          @sliding-end="onSlideEnd"
+        >
+        <b-carousel-slide img-src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQyXX8-5XyU6W3hUPia7y3tyKAcCPTBqyG4A&usqp=CAU" ></b-carousel-slide>
+        <b-carousel-slide img-:src='../assets/card1.png'></b-carousel-slide>
+        </b-carousel> -->
+        
+        <img :src="require('../assets/card1.png')" alt="logo" class="location" >
         </b-col>
         <b-col cols="12" md="8">
-          <h2>Sensor de Temperatura y Humedad</h2>
+          <h2> <center> Sensor de Temperatura y Humedad</center></h2>
           <div>
             <p class="descrip">{{descrip}}</p>
           </div>
@@ -22,7 +39,10 @@
         </b-card-header>
         <b-collapse id="accordion-1" visible accordion="my-accordion" role="tabpanel" >
           <b-card-body class="text">
-            <b-card-text>{{ caract }}</b-card-text>
+            <b-card-text>
+              <ul v-for="(caract,index) in caracts" :key="index">
+                <li>{{ caract.item }}</li>
+              </ul></b-card-text>
           </b-card-body>
         </b-collapse>
       </b-card>
@@ -32,10 +52,34 @@
         </b-card-header >
         <b-collapse id="accordion-2" accordion="my-accordion"  class="text">
           <b-card-body >
-            <b-card-text >{{ beneficios }}</b-card-text>
+            <b-card-text >
+              <ul v-for="(beneficio,index) in beneficios" :key="index">
+                <li>{{ beneficio.item }}</li>
+              </ul></b-card-text>
           </b-card-body>
         </b-collapse>
       </b-card>
+      <br><br>
+      <h2><center>Area de Aplicacion</center></h2>
+      <div v-for="(area,index) in areas" :key="index" class="area">
+        <b-card-title>
+          <img :src="area.src" alt="producto1" class="product">
+        </b-card-title>
+        <b-card-text>
+          {{area.title}}
+        </b-card-text>
+      </div>
+       <br><br><br>
+       <h2><center>Productos Relacionados</center></h2>
+      <div v-for="(card,index) in cards" :key="index" class="relacionados">
+        <b-card-title>
+          <img :src="card.src" alt="producto1" class="product">
+        </b-card-title>
+        <b-card-text>
+          {{card.modelo}}
+        </b-card-text>
+      </div>
+      <br><br>
     </div>
   </div>
 </template>
@@ -44,25 +88,92 @@
   export default {
     data() {
       return {
-        caract: `
-          sus caracteristiocas varian porque este sensor es mejor que los demas
-        `,
-        beneficios: `
-          sus beneficios van ligados al cuido de la persona
-        `,
+        caracts:[
+          {
+            item:'Configuración fácil a internet en menos de 3 minutos.'
+          },
+          {
+            item: 'Configuración del nombre del área en que se ubicará.'
+          },
+          {
+            item: 'Personalización del nombre de cada multisensor'
+          },
+          {
+            item: 'Modificación del tiempo de muestreo (según requerimiento del cliente).'
+          },
+          {
+            item: 'Modificación de límites de alarma.'
+          },
+          {
+            item: 'Visualización de las mediciones máximas y mínimas de las últimas 24 horas.'
+          },
+          {
+            item: 'Monitorear el estado de la batería de respaldo con que cuenta el sistema de monitoreo.'
+          },
+          {
+            item: 'Generación de informes de medición.'
+          }
+        ],
+        beneficios:[
+          {
+            item: 'Facilidad de instalación del dispositivo multisensor.'
+          },
+          {
+            item: 'Mejorar la atención del paciente mediante el seguimiento del confort térmico de su habítación.'
+          },
+          {
+            item: 'Disminución del riesgo por pérdida de cadena de frío.'
+          },
+          {
+            item: 'Disminución del riesgo en el área de producción.'
+          }
+        ],
         descrip: 
         `Se encarga de monitorear la temperatura de un sitio en tiempo real a través de una APP móvil, informar mediante
         notificación al móvil cuando esta variable salga del rango establecido, detección de apertura y
         cierre de puerta, alerta sonora cuando la variable sale del rango establecido. Generar informes
-        gráficos por periodos de tiempos del funcionamiento de todo el sistema.`
+        gráficos por periodos de tiempos del funcionamiento de todo el sistema.`,
+        /* slide: 0,
+        sliding: null, */
+        
+        cards:[
+          {
+            src: require('../assets/card2.png'),
+            modelo: "Modelo: HMPE-T-2IND",
+            url: '/Sensor-de-temperatura'
+          },
+          {
+            src: require('../assets/card3.png'),
+            modelo: "Modelo: HMPE-T-2IND-B",
+            url: '/Multisensor-de-planta-electrica'
+          } 
+        ],
+        areas: [
+          {
+            src: require('../assets/Lab.jpeg'),
+            title: 'Laboratorio'
+          },
+          {
+            src: require('../assets/Hosp.jpeg'),
+            title: 'Hospital'
+          },
+          {
+            src: require('../assets/ofi.jpeg'),
+            title: 'Oficina'
+          }
+        ]
+      }
+    },
+    methods: {
+      onSlideStart(slide) {
+        this.sliding = true
+      },
+      onSlideEnd(slide) {
+        this.sliding = false
       }
     }
   }
 </script>
-
-
-
-
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 @import url(https://fonts.googleapis.com/css?family=Montserrat);
@@ -72,7 +183,12 @@
     font-size: 20px;
   }
   h2{
-    margin-top: 40px;
+    font-family: 'Monserrat';
+    font-size: 28px;
+    padding: 10px;
+  }
+  .location{
+    width: 300px;
   }
   .carac{
     text-align: left;
@@ -112,4 +228,28 @@
    }
   }
 
+.targetas{
+  position: relative;
+  height: 210px;
+  width: 200px;
+  background-color: rgb(212, 226, 198);
+  display: flex;
+  
+}
+.area{
+  display: inline-block;
+  text-align: center;
+  margin-left: 150px;
+}
+.relacionados{
+  display: inline-block;
+  text-align: center;
+  margin-left: 250px;
+}
+.adp{
+  margin: 0px -50px;
+}
+.product{
+  width: 200px;
+}
 </style>

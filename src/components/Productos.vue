@@ -6,14 +6,15 @@
         <img :src="require('../assets/Boton_descargar.png')" alt="descarga" >
       </a>
     </div>
-    <div>
-      <b-card>
-        {{products.src}}
-      </b-card>
-      <b-card-text>
-        {{products.title}}
+    <div v-for="(product,index) in products" :key="index" class="products">
+      <b-card-title>
+        <img :src="product.src" alt="producto1" class="product">
+      </b-card-title>
+      <b-card-text><center>
+        {{product.title}}</center>
       </b-card-text>
     </div>
+    <br><br><br>
   </div>
 </template>
 
@@ -24,17 +25,21 @@
         products: [
           {
             title: 'Modelo: HM-TH-B ',
-            src: require('../assets/card1.png')
+            src: require('../assets/card1.png'),
+            root: '/Sensor-de-temperatura-y-humedad'
           },
           {
             title: 'Modelo: HM-T-2IND-B', 
-            src: require('../assets/card2.png')
+            src: require('../assets/card2.png'),
+             root: '/Sensor-de-temperatura'
           },
           {
             title: 'Modelo: HMPE-T-2IND-B',
-            src: require('../assets/card3.png')
+            src: require('../assets/card3.png'),
+             root: '/Multisensor-de-planta-electrica'
           }
-        ]
+        ],
+
       }
     }
   }
@@ -49,7 +54,7 @@
   .src img{
     width: auto;
     top: -255px;
-    left: -290px;
+    left: 190px;
     height: 150px;
     position: relative;
   }
@@ -60,8 +65,17 @@
     .src img{
     width: 200px;
     height: 100px;
-    margin-left: 250px;
+    margin-left: -100px;
     margin-top: 80px;
   }
    }
+  .product{
+    width: 300px;
+    display: flex;
+  }
+  .products{
+    display: inline-block;
+    margin-left: 100px;
+    margin-top: -150px;
+  }
 </style>
