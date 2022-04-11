@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="purchase">
-            <div class="text" >CONTRATA CON HELPSMART
+            <div class="text" >CONTRATAME 
         </div>
         </div>   
         <footer>
@@ -10,7 +10,7 @@
                     <h2>Nosotros</h2>
                     <div class="content">
                         <br>
-                        <p>Empresa dedica al desarrollo de Software de sensores aplicados al sector salud  ....</p> 
+                        <p>Freelance dedicado al desarrollo de Software enfocado en el desarrollo web ....</p> 
                         <div>
                         <br>
                     </div> 
@@ -18,25 +18,29 @@
             </div>
 
                 <div class="center box">
-                <h2>  Productos</h2>
+                <h2>  Tecnologias</h2>
                 <div class="content">
                     <div class="place">
                     <br>
-                    <span class="text">Sensor de Temperatura</span>
+                    <span class="text">Javascript</span>
                     </div>
                     <div class="phone">
                     <br>
-                    <span class="text">Sentor de Humedad</span>
+                    <span class="text">Vuejs</span>
                     </div>
                     <div class="email">
                     <br>
-                    <span class="text">Multisensor para planta electrica</span>
+                    <span class="text">Wordpress</span>
+                    </div>
+                    <div class="email">
+                    <br>
+                    <span class="text">Angularjs</span>
                     </div>
                 </div>
                 </div>
 
                 <div class="right box">
-                <h2>Contacto</h2>
+                <h2>Te Contacto</h2>
                 <div class="content">
                     <form action="#">
                     <div class="email">
@@ -64,8 +68,8 @@
             </div>
             <div class="bottom text-center">
                 <span class="credit">Desarrollado por 
-                <a target="_blank" href="https://www.helpmedica.com">HELPMEDICA</a> | </span>
-                <span>2021</span>
+                <a target="_blank" href="">Jesus Torres</a> | </span>
+                <span>2022</span>
             </div>
         </footer>
     </div>

@@ -2,7 +2,7 @@
   <header>
     <b-navbar toggleable="lg" type="dark" >
       <router-link to="/" class="navbar-brand">
-        <img v-bind:src="require('../assets/logo_abajo.png')" alt="logo" >
+        <img v-bind:src="require('../assets/logo.png')" alt="logo" >
       </router-link>
       <b-navbar-toggle target="nav-collapse" ></b-navbar-toggle>
       

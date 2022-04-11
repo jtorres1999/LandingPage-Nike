@@ -65,21 +65,23 @@
         <b-card-title>
           <img :src="area.src" alt="producto1" class="product">
         </b-card-title>
-        <b-card-text>
+        <b-card-text class="texto">
           {{area.title}}
         </b-card-text>
       </div>
        <br><br><br>
        <h2><center>Productos Relacionados</center></h2>
       <div v-for="(card,index) in cards" :key="index" class="relacionados">
+        <router-link :to="card.url">
         <b-card-title>
-          <img :src="card.src" alt="producto1" class="product">
+          <img :src="card.src" alt="producto1" class="image">
         </b-card-title>
-        <b-card-text>
+        </router-link>
+        <b-card-text class="texto">
           {{card.modelo}}
         </b-card-text>
       </div>
-      <br><br>
+      <br><br><br>
     </div>
   </div>
 </template>
@@ -214,7 +216,7 @@
     margin-left: -60px;
     
   }
-  @media only screen and (max-width: 1024px) {
+  @media only screen and (max-width: 1025px) {
    .accordion{
      margin: 0px 0px;
      width: 100%;
@@ -226,8 +228,28 @@
    h2{
      margin-top: 100px;
    }
+   .adp{
+     display: inline-flex;
+     margin: 0px 0px;
+   }
   }
-
+  @media only screen and (max-width: 361px){
+     .relacionados{
+       margin-left: -10px;
+       
+       margin-top: 10px;
+     }
+     h2{
+       margin-top: 50px;
+       margin-left: 150px;
+       font-weight: bolder;
+       font-size: 23px;
+     }
+     .product{
+       display: inline-flex;
+       width: 100px;
+     }
+  }
 .targetas{
   position: relative;
   height: 210px;
@@ -250,6 +272,29 @@
   margin: 0px -50px;
 }
 .product{
-  width: 200px;
+  width: 250px;
 }
+  .texto{
+    opacity: 0;
+    font-weight: bolder;
+    font-size: 17px;
+    font-family: "Montserrat", sans-serif;
+  }
+  .relacionados:hover{
+    transform: translateY(20px);
+  }
+  .relacionados:hover .texto{
+    opacity: 1;
+  }
+  .area:hover{
+    transform: translateY(20px);
+  }
+  .area:hover .texto{
+    opacity: 1;
+  }
+  .image{
+    width: 270px;
+    margin: 0px -100px
+  }
+  
 </style>

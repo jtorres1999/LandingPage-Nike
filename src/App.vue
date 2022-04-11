@@ -22,5 +22,10 @@ export default {
 </script>
 
 <style>
-
+.navbar-dark .navbar-nav .nav-link :active{
+  color: black  !important;;
+}
+.navbar a.nav-link:active{
+  color: black !important;
+}
 </style>

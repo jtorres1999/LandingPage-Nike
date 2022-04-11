@@ -2,13 +2,13 @@
   <header>
     <div class="contenedor">
       <img
-        :src="require('@/assets/Help_Smart-01.png')"
+        :src="require('@/assets/nike.jpg')"
         alt="principalS"
         class="centrar1"
       />
-      <img :src="require('@/assets/Diseno.png')" alt="diseño" class="cent" />
+      <img :src="require('@/assets/fondo.webp')" alt="diseño" class="cent" />
       <div class="src">
-        <a href="https://www.helpmedica.com">
+        <a href="https://github.com/jtorres1999">
           <img :src="require('@/assets/Boton_descargar.png')" alt="" />
         </a>
       </div>
@@ -23,31 +23,32 @@
                   class="embed-responsive-item"
                 />
               </video>
-              <div class="titulo">{{ service.title }}</div>
-              <br />
-              <div class="modelo">
-                {{ service.modelo }}
+              <div class="caja">
+                <div class="titulo">{{ service.title }}</div>
+                <br />
+                <div class="modelo">
+                  {{ service.modelo }}
+                </div>
+                <br />
+                <ul
+                  class="lista"
+                  v-for="(lista, index) in service.listas"
+                  :key="index"
+                >
+                  <li>{{ lista.item }}</li>
+                  <template v-if="lista.subitems">
+                    <ul v-for="(subitem, index) in lista.subitems" :key="index">
+                      <li>{{subitem.subitem}}</li>
+                    </ul>
+                  </template>
+                </ul>
+                <router-link :to="service.url">
+                  <b-button class="btn btn-success">
+                    Ver mas
+                  </b-button>
+                </router-link>
               </div>
-              <br />
-              <ul
-                class="lista"
-                v-for="(lista, index) in service.listas"
-                :key="index"
-              >
-                <li>{{ lista.item }}</li>
-                <template v-if="lista.subitems">
-                  <ul v-for="(subitem, index) in lista.subitems" :key="index">
-                    <li>{{subitem.subitem}}</li>
-                  </ul>
-                </template>
-              </ul>
-              <router-link :to="service.url">
-                <b-button class="btn btn-success">
-                  Ver mas
-                </b-button>
-               </router-link>
             </div>
-              
           </b-col>
         </b-row>
       </b-container>
@@ -61,54 +62,54 @@ export default {
     return {
       services: [
         {
-          title: "Sensor de Temperatura y Humedad",
-          modelo: "Modelo: HM-TH-B  ",
+          title: "Cuarto de fabricacion de zapatillas",
+          modelo: "Modelo: TH-1999  ",
           listas: [
             {
-              item: "Monitoreo de temperatura y humedad en tiempo real.",
+              item: "Monitoreo de calzado  en tiempo real.",
             },
             {
               item: "Configuración fácil en menos de 3 minuto",
             },
             {
-              item: "Personalizaciones del dispositivo",
+              item: "Personalizaciones del cuarto",
             },
           ],
           url:'/Sensor-de-temperatura-y-humedad',
           video: require("@/assets/Producto1.mp4"),
         },
         {
-          title: "Sensor de Temperatura ",
-          modelo: "Modelo: HMPE-T-2IND-B ",
+          title: "Refrigeradores del material importado ",
+          modelo: "Modelo: 2IND-B ",
           listas: [
             {
-              item: "Monitoreo de temperatura y humedad en tiempo real.",
+              item: "Monitoreo de calzado  en tiempo real.",
             },
             {
               item: "Configuración fácil en menos de 3 minuto",
             },
             {
-              item: "Personalizaciones del dispositivo",
+              item: "Personalizaciones del cuarto",
             },
             {
-              item: "Detección de apertura y corte de energía",
+              item: "Detección de los cortes de energía",
             },
           ],
           url:'/Sensor-de-temperatura',
           video: require("../assets/Gif2.mp4"), 
         },
         {
-          title: "Multisensor de Planta electrica ",
+          title: " Planta electrica empresarial ",
           modelo: "Modelo: HMPE-T-2IND-B ",
           listas: [
             {
-              item: "Monitoreo de temperatura y humedad en tiempo real.",
+              item: "Monitoreo de calzado  en tiempo real.",
               subitems: [
                 {
                   subitem: "Apagado y Encendido",
                 },
                 {
-                  subitem: "Temperatura del area",
+                  subitem: "Temperatura de las instalaciones",
                 },
               ],
             },
@@ -191,48 +192,78 @@ img {
   font-weight: bolder;
   font-family: "Montserrat", sans-serif;
   color: #000;
+    
 }
 .modelo {
   font-size: 1.5vw;
   font-weight: semibolder;
   font-family: "Montserrat", sans-serif;
   color: #000;
+  
 }
-.box {
+
+.box{
+  position: relative;
+  display: inline-block;
   text-align: left;
-  grid-template-columns: auto auto auto;
-  margin: 50px 0px;
+}
+.caja{
+  position: absolute;
+  top: 15%;
+  left: 10px;
 }
 @media only screen and (max-width: 780px) {
   .box {
     font-size: 0.7vw;
-    width: 40%;
+    width: 92%;
     margin: 10px 0px;
   }
   .btn {
     font-size: x-small;
-    margin: 0px 4-0px;
+    margin-top: 20px;
   }
   .src img {
-    width: 220px;
-    height: 100px;
-    margin-left: 150px;
-    margin-top: 180px;
+    width: 70px;
+    height: 50px;
+    margin-left: -50px;
+    margin-top: 200px;
+  }
+  .cent{
+    width: 100%;
+  }
+  .centrar1{
+    width: 100%;
+  }
+  .titulo{
+    font-size: 8px;
+    margin-top: 10px;
+  }
+  .modelo{
+    font-size:  6px;
+  }
+  .lista{
+    font-size: 4px;
+    padding: 0px;
+    margin-top: 0px;
+  }
+  ul li{
+    opacity: 1;
+    
   }
 }
 .lista {
   list-style: none;
   padding: 3px;
-  position: relative;
+ 
 }
 ul li::before {
   content: "\2022";
   color: rgb(0, 255, 136);
   list-style: none;
-  padding-right: 5px;
+  padding-right: 4px;
   font-size: 35px;
-  line-height: 13px;
-  vertical-align: -6px;
+  line-height: 0.1em;
+  vertical-align: -5px;
   font-family: "Montserrat", sans-serif;
   text-align: left;
 }
@@ -242,6 +273,7 @@ ul {
 }
 .btn {
   margin: -10px 70px;
+  
 }
 @media only screen and (max-width: 1024px) {
   .centrar1 {
